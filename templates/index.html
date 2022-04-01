@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>MakeMyVibe</title>
+</head>
+
+<body>
+	<div>
+        <h1>MakeMyVibe</h1>
+		<form class="form" action = "/" method = "post">
+			<div class="row">
+				<div>
+					<p>
+						<input class="text_box_input" type="text" placeholder="Surf for an artist or song" name = "song" />
+						<input class="text_box_input" type="text" placeholder="Enter your name if you like" name = "name" />
+					</p>
+				</div>
+				<div>
+					<input type = "submit" value = "submit" />
+				</div>
+			</div>
+		</form>
+
+		{% if tracks %} 
+		<p>Here are the top 10 tracks</p>
+		{% for track in tracks %}
+		<div>
+            <p class="song_name"><a href=" {{ url_for('success', uri=track['uri'], song_name=track['name'], name=sender_name) }}">{{track['name']}}</a></p>
+		</div>
+		{% endfor %}
+		{% endif %}
+	</div>
+</body>
+</html>
