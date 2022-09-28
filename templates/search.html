@@ -1,0 +1,28 @@
+{#search.html#}
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>MakeMyVibe</title>
+</head>
+
+<body>
+	<div>
+        <h1>MakeMyVibe</h1>
+		<form class="form" action = "/search" method = "post">
+			<div class="row">
+                <input class="text_box_input" type="text" placeholder="Surf for an artist or song" name = "Search" />
+                <input type = "submit" value = "Play" />
+			</div>
+		</form>
+
+		{% if tracks %}
+		<p>Here are the top 10 tracks</p>
+		{% for track in tracks %}
+		<div>
+            <p class="song_name"><a href="{{ url_for('play_song', uri=track['uri']) }}">{{ track['name'] }} - {{ track['artist'] }}</a></p>
+		</div>
+		{% endfor %}
+		{% endif %}
+	</div>
+</body>
+</html>

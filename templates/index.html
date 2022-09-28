@@ -1,28 +1,20 @@
-{#index.html#}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-	<title>MakeMyVibe</title>
+    <title>Welcome - MakeMyVibe</title>
 </head>
-
 <body>
-	<div>
-        <h1>MakeMyVibe</h1>
-		<form class="form" action = "/" method = "post">
-			<div class="row">
-                <input class="text_box_input" type="text" placeholder="Surf for an artist or song" name = "Search" />
-                <input type = "submit" value = "Play" />
-			</div>
-		</form>
-
-		{% if tracks %}
-		<p>Here are the top 10 tracks</p>
-		{% for track in tracks %}
-		<div>
-            <p class="song_name"><a href="{{ url_for('play_song', uri=track['uri']) }}">{{ track['name'] }} - {{ track['artist'] }}</a></p>
-		</div>
-		{% endfor %}
-		{% endif %}
-	</div>
+{% if have_user %}
+    <h1> Welcome {{ name }}</h1>
+    <a href="{{ url_for('search') }}">Search Songs to queue</a>
+    <a href="{{ url_for('vote_to_skip') }}">Vote To Skip Track</a>
+{% else %}
+    <form method="post" action="/">
+        <h3>Enter your name:</h3>
+        <input type="text" name="Name"/>
+        <input type="submit">
+    </form>
+{% endif %}
 </body>
 </html>
