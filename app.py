@@ -29,6 +29,8 @@ def root():
     else:
         id = request.cookies.get('id')
         name = request.cookies.get('name')
+
+        # This is in case the cookie exists already on the browser but not on our server.
         try:
             if id is not None and users[int(id)]['name'] == name:
                 return render_template("index.html", have_user=True, name=name)

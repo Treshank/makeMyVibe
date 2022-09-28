@@ -1,7 +1,7 @@
 # Make My Vibe
 
-Contains code upto Part 2 of Make My Vibe Medium article.
-Follow along here: https://medium.com/@treshank.prasad/make-my-vibe-f945412c78a3
+Contains code upto Part 3 of Make My Vibe Medium article.
+Follow along here: https://medium.com/@treshank.prasad/make-my-vibe-c46c4b302832
 
 ## SETUP
 ```shell
